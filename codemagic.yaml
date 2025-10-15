@@ -1,16 +1,15 @@
 workflows:
   android-workflow:
-    name: Build PlanetSport for Android
+    name: "Build PlanetSport for Android"
     max_build_duration: 60
     environment:
-      flutter: stable
-      xcode: latest
-      cocoapods: default
+      vars:
+        FLUTTER_VERSION: stable
     scripts:
-      - name: Get Flutter dependencies
+      - name: "Get Flutter dependencies"
         script: |
           flutter pub get
-      - name: Build Android App Bundle (.aab)
+      - name: "Build Android App Bundle (.aab)"
         script: |
           flutter build appbundle --release
     artifacts:
